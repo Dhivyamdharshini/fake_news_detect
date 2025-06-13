@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            min-height: 200px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e9f7ef;
+            border-left: 6px solid #28a745;
+            font-size: 18px;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            border-left: 6px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detector</h1>
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="newsText" placeholder="Enter news article here...">{{ news_input }}</textarea><br>
+            <button type="submit">Check News</button>
+        </form>
+
+        {% if prediction %}
+            <div class="prediction {% if 'Fake' in prediction %}error{% endif %}">
+                <strong>Prediction:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

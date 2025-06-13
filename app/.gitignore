@@ -1,0 +1,44 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django SQLite database
+*.sqlite3
+db.sqlite3
+
+# Logs
+*.log
+
+# Virtual environment
+venv/
+.venv/
+vir/
+
+# Environment variables
+.env
+
+# Static and media
+/static/
+media/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files (common in ML projects)
+*.csv
+*.tsv
+*.pkl
+*.joblib
+*.h5
+
+# VS Code settings
+.vscode/
+
+# Swap/backup files
+*.swp
+*.bak
+
+# Mac/Linux/Windows system files
+.DS_Store
+Thumbs.db
